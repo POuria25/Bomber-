@@ -72,3 +72,21 @@ main.py:
 
 Serves as the entry point of the program.
 Initializes the game by creating an instance of the Controller and starts the game loop.
+
+How to run:
+Open your termnal and type
+    python main.py
+
+
+Gameplay Instructions:
+
+Use the mouse to control the altitude of the airplane.
+Press b to manually drop bombs.
+Press a to trigger the calculation and scheduling of automatic bomb firing based on physics and the airplane’s position.
+Watch as bombs fall, hit the ground, or align with the flag in automatic mode.
+
+Game Flow:
+The game initializes with a moving airplane, clouds, and a flag.
+Player actions (mouse movement and key presses) are processed by the Controller to interact with the game state.
+The Physics module calculates bomb trajectories and determines collision points.
+The View module continuously updates and renders the game elements for a smooth visual experience.
