@@ -86,12 +86,15 @@ Press a to trigger the calculation and scheduling of automatic bomb firing based
 Watch as bombs fall, hit the ground, or align with the flag in automatic mode.
 
 
-
-![Example Image](./pic1.png)
-![Example Image](./pic2.png)
-![Example Image](./pic3.png)
 Game Flow:
 The game initializes with a moving airplane, clouds, and a flag.
 Player actions (mouse movement and key presses) are processed by the Controller to interact with the game state.
 The Physics module calculates bomb trajectories and determines collision points.
 The View module continuously updates and renders the game elements for a smooth visual experience.
+
+
+
+![Example Image](./pic1.png)
+![Example Image](./pic2.png)
+![Example Image](./pic3.png)
+![Example Image](./pic4.png)
