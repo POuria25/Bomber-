@@ -75,6 +75,8 @@ class View:
             y = self.ground_height * math.exp(math.cos(alpha)) / math.e
             pygame.draw.rect(self.screen, GREEN, ((x, self.dimensions[1] - y), (1, y)))
 
+
+        
     def draw_flag(self, current_time):
         """
         Drawing flag at the given position
@@ -89,6 +91,7 @@ class View:
             (x + 20, self.dimensions[1] - 35)
         ])
         pygame.draw.rect(self.screen, BLACK, ((x, self.dimensions[1] - 50), (3, 40)))
+
 
     def display_text(self, x, y, text, color):
         """

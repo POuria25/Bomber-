@@ -9,6 +9,7 @@ class State:
         self.bombs = []
         self.autoBomb = False
         self.autoBomb_time = 0
+        self.flag_position = (800, 600)  # Initialize flag position Default starting position (x, y)
 
     def add_bomb(self, bomb):
         """

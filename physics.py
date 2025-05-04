@@ -99,8 +99,25 @@ class Physics:
         p = depart + 1/2 * acceleration *((actuel_time-depart_time)** 2)
 
         return p
-
-
+    
+    
+    def attempt_automatic_fire(self):
+        
+        flag_x, flag_y = self.state.flag_position
+        
+        plane_x = self.state.plane_position[0] // 2
+        plane_y = self.state.plane_position[1]
+        
+        horizontal_distance = abs(plane_x - flag_x)
+        vertical_distance = abs(plane_y - flag_y)
+        
+        distance_threshold = 100
+        
+        if horizontal_distance <= distance_threshold and vertical_distance <= distance_threshold:
+            print("[DEBUG] Automatic fire")
+            self.add_bomb()
+        else:
+            print("[DEBUG] Automatic fire not possible")
 
     def calculate_bomb_flag_distance(self, bomb, current_time, horizontal_speed, background_cycle_period, window_dimensions):
         """
@@ -131,6 +148,32 @@ class Physics:
         distance = math.sqrt(dx ** 2 + dy ** 2)
         
         return distance
+    
+    
+    def calculate_drop_time_and_position(self, plane_altitude, flag_position, plane_speed, gravity):
+        """
+        Calculate the exact time and position to drop the bomb.
+
+        Args:
+            plane_altitude (float): The altitude of the plane (vertical distance to the ground).
+            flag_position (float): The horizontal position of the flag.
+            plane_speed (float): The horizontal speed of the plane.
+            gravity (float): Gravitational acceleration.
+
+        Returns:
+            (float, float): Time required to hit the flag, and the horizontal drop position.
+        """
+        # Calculate the time to fall using vertical motion physics
+        if gravity <= 0:
+            raise ValueError("Gravity must be a positive value.")
+        time_to_fall = math.sqrt(2 * plane_altitude / gravity)
+
+        # Calculate the horizontal position where the bomb should be dropped
+        drop_position = flag_position - plane_speed * time_to_fall
+
+        return time_to_fall, drop_position
+
+
 
 
             
